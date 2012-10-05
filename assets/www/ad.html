@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=320,height=53,user-scalable=no,initial-scale=1.0" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Cordova Mobile Spec</title>
+	  <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="main.js"></script>
+  	<script>
+  		var expanded = false;
+  		var style = document.getElementById('htmlstyle')
+  		
+  	  	function loadPage()
+  		{
+  	  		cordova.exec(null,null,'mmAd','init',[]);
+  		}
+  	    function init() {
+  	        document.addEventListener("deviceready", function(){loadPage();}, true);
+  	      	window.addEventListener("message", receiveMessage, false);
+  	  		var mm_ad = document.createElement('script');
+  	  		mm_ad.id = "mmads357";
+  	  		mm_ad.src = "http://ads.mydas.mobi/getAd.js?sdkapid=357&acid=213202";
+  	  		document.body.appendChild(mm_ad);
+  	    }
+  	    function receiveMessage(event)
+  	    {
+  	    	if (event.data.match(/ExpandCreative/i) || event.data.match(/CollapseCreative/i))
+  	    	{
+  	    		cordova.exec(null,null,'mmAd','resizeAd',[]);
+  	    	}
+  	    }
+  	</script>
+  </head>
+  <body onload="init();" id="stage" class="theme" style="background-color:transparent">
+  </body>
+</html>

@@ -63,4 +63,8 @@
     <style name="ActionBarCompatHomeItem" parent="style/ActionBarCompatItemBase">
     </style>
 
+    <style name="styleName" parent="android:Widget.Holo.Light.EditText">
+        <item name="android:ems">10</item>
+        <item name="android:gravity">bottom</item>
+    </style>
 </resources>

@@ -17,25 +17,20 @@
 package com.example.android.actionbarcompat;
 
 import org.apache.cordova.CordovaWebView;
-import org.apache.cordova.DroidGap;
 import org.apache.cordova.api.CordovaInterface;
 import org.apache.cordova.api.IPlugin;
 import org.apache.cordova.api.LOG;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements CordovaInterface{
-    private boolean mAlternateTitle = false;
     private boolean bound;
     private boolean volumeupBound;
     private boolean volumedownBound;
@@ -47,26 +42,12 @@ public class MainActivity extends ActionBarActivity implements CordovaInterface{
 
     CordovaWebView mainView;
     
-    public void onCreate(Bundle savedInstanceState) {
+    @SuppressLint("NewApi")
+	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
         mainView =  (CordovaWebView) findViewById(R.id.mainView);
-        mainView.loadUrl("file:///android_asset/www/index.html");
-
-/*
-        findViewById(R.id.toggle_title).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mAlternateTitle) {
-                    setTitle(R.string.app_name);
-                } else {
-                    setTitle(R.string.alternate_title);
-                }
-                mAlternateTitle = !mAlternateTitle;
-            }
-        });
-        */
+        mainView.loadUrl("file:///android_asset/www/ad.html");
     }
 
     @Override
