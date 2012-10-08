@@ -223,7 +223,6 @@ public class MainActivity extends ActionBarActivity implements CordovaInterface{
      */
     protected void onResume() {
         super.onResume();
-
        
         if (this.mainView == null) {
             return;

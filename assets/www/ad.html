@@ -14,14 +14,15 @@
   	  	function loadPage()
   		{
   	  		cordova.exec(null,null,'mmAd','init',[]);
+  	  		document.body.appendChild(mm_ad);
   		}
+		var mm_ad = null;
   	    function init() {
   	        document.addEventListener("deviceready", function(){loadPage();}, true);
   	      	window.addEventListener("message", receiveMessage, false);
-  	  		var mm_ad = document.createElement('script');
+  	  		mm_ad = document.createElement('script');
   	  		mm_ad.id = "mmads357";
   	  		mm_ad.src = "http://ads.mydas.mobi/getAd.js?sdkapid=357&acid=213202";
-  	  		document.body.appendChild(mm_ad);
   	    }
   	    function receiveMessage(event)
   	    {
